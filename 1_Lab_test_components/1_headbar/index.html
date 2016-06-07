@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sample toolbar</title>
+	<!--width=device-width  คือ ให้กว้างตามขนาดตั้งต้นของเครื่องที่เปิด 
+	    initial-scale=1.0   คือ ไม่ต้องการให้เว็บมัน zoom  
+	    minimum-scale=0.5, maximum-scale=2   คือการตำกัดการ zoom
+	    user-scalable=yes   คือ ให้ user zoom ได้-->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+	<srcipt src="../../Test_component/bower_components//webcomponentsjs/webcomponents-lite.js"></srcipt>
+	<link rel="import" href="../../Test_component/bower_components/polymer/polymer.html">
+	<link rel="import" href="../../Test_component/bower_components/paper-toolbar/paper-toolbar.html">
+	<link rel="import" href="../../Test_component/bower_components/paper-ripple/paper-ripple.html">
+	<link rel="import" href="../../Test_component/bower_components/app-layout/demo/sample-content.html">
+	<link rel="import" href="../../Test_component/bower_components/iron-icons/iron-icons.html">
+	<link rel="import" href="../../Test_component/bower_components/paper-icon-button/paper-icon-button.html">
+	<link rel="import" href="../../Test_component/bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+	<!-- สีที่ polymer มีมาให้-->
+	<link rel="import" href="../../Test_component/bower_components/paper-styles/color.html">
+	<!-- กล่องมีขอบที่ polymer มีมาให้-->
+	<link rel="import" href="../../Test_component/bower_components/paper-styles/shadow.html">
+	<!-- side-bar ที่ polymer มีมาให้-->
+	<link rel="import" href="../../Test_component/bower_components/paper-drawer-panel/paper-drawer-panel.html">
+	<!-- ปุ่มที่ polymer มีมาให้-->
+	<link rel="import" href="../../Test_component/bower_components/paper-button/paper-button.html">
+	<style is="custom-style"> /* ชื่อ component  "paper-toolbar" ตามด้วยชื่อคลาสที่ต้องการ เช่น ".red" */
+		html, body {
+		  height: 100%;
+		  margin: 0;
+		}
+		paper-scroll-header-panel {
+		  
+		  height: 100%;
+		}
+		--paper-scroll-header-panel-condensed-header{
+			color: red;
+		}
+		paper-toolbar.red {
+			--paper-toolbar-background:red;
+			--paper-toolbar-title:{
+				font-style: italic;
+				font-weight: bold;
+			};
+		}
+		paper-toolbar.blue {
+			--paper-toolbar-background:var(--paper--light-blue-500, #03A9F4);
+			--paper-toolbar-height: 54px;
+			--paper-toolbar-title:{
+				font-style: italic;
+				font-weight: bold;
+			};
+		}
+		paper-icon-button.pink{
+			/*--paper-icon-button-disabled:{ ตั่งค่าการกดปุ่มๆม่ได้
+				color:pink;
+			};
+			--paper-icon-button-hover:{ การ hover ปุ่ม
+				color:pink;
+			};*/
+			--paper-icon-button:{
+				color:pink;
+			};
+		}
+		paper-icon-button.pink:hover{
+			color: white;
+			border-radius: 3px
+			padding: 200px;
+			margin-top: 20px;
+		}
+		/*การใช้ shadow*/
+		.shadow {
+	      display: inline-block;
+	      padding: 8px;
+	      margin: 16px;
+	      height: auto;
+	      width: auto;
+	    }
+	    .shadow-2dp {
+	      @apply(--shadow-elevation-2dp);
+	    }
+	    .shadow-3dp {
+	      @apply(--shadow-elevation-3dp);
+	    }
+	    .shadow-4dp {
+	      @apply(--shadow-elevation-4dp);
+	    }
+	    .shadow-6dp {
+	      @apply(--shadow-elevation-6dp);
+	    }
+	    .shadow-8dp {
+	      @apply(--shadow-elevation-8dp);
+	    }
+	    .shadow-12dp {
+	      @apply(--shadow-elevation-12dp);
+	    }
+	    .shadow-16dp {
+	      @apply(--shadow-elevation-16dp);
+	    }
+	</style>
+</head>
+<body class="fullbleed layout vertical">
+	<paper-scroll-header-panel class="flex">
+		<paper-toolbar class="blue">
+		  <paper-icon-button icon="menu" on-tap="menuAction"></paper-icon-button>
+		  <div class="title">หัวเมนู</div>
+		  <paper-icon-button icon="more-vert" on-tap="moreAction"></paper-icon-button>
+		</paper-toolbar>
+		  <div class="shadow shadow-2dp">2dp</div>
+		<div class="content">
+			<paper-icon-button src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="octocat" title="octocat"></paper-icon-button>
+			 <a href="#">
+			 	<paper-icon-button icon="favorite" title="heart" class="pink" pressed></paper-icon-button>ชอบมากกกก
+			 </a>
+			 
+			 <a href="https://www.polymer-project.org" tabindex="-1">
+			  <paper-icon-button icon="polymer" ></paper-icon-button>
+			</a>
+			<sample-content size="100" ></sample-content>
+		</div>
+	</paper-scroll-header-panel>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Layout</title>
+  <link rel="import" href="../../Test_component/bower_components/polymer/polymer.html">
+  <link rel="import" href="../../Test_component/bower_components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="../../Test_component/bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
+  <link rel="import" href="exportdisplay.html">
+</head>
+
+
+  <body>
+    
+    <mixin-demo></mixin-demo>
+
+    <dom-module id="mixin-demo">
+
+      <!-- inside an element -- apply mixins in a standard style element -->
+      <style>
+        .container {
+          @apply(--layout-horizontal);
+          @apply(--layout-wrap);
+          background-color: #ccc;
+
+        }
+        .container>div {
+          background-color: #fff;
+          margin: 10px;
+          padding: 10px;
+          width: 400px;
+        }
+        /*
+        .flexchild {
+          @apply(--layout-flex);
+        }
+        .flex2child {
+          @apply(--layout-flex-2);
+        }
+        .flex3child {
+          @apply(--layout-flex-3);
+        }*/
+      </style>
+
+
+      <template>
+        <div class="container">
+          <div class="flex3child">One</div>
+          <div class="flexchild" id="flexchild">Two</div>
+          <div class="flex2child">Three</div>
+        </div>
+
+        <x-puck></x-puck>
+
+      </template>
+
+      <script>
+        Polymer({
+
+          is: 'mixin-demo'
+
+        });
+      </script>
+
+    </dom-module>
+  </body>
+</html>
