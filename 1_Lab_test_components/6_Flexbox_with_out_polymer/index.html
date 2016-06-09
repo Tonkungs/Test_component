@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flexbox</title>
+</head>
+<style>
+	.flex-container{
+		display: flex; /*เริ่มใช้ flex*/
+		flex-direction: column; /* ค่า default จะเป็น row */
+	}
+	/*เมือจอกว้างเท่ากับ 800 px จะปรับมาใช้ flex แบบนี้*/
+	@media screen and (min-width:700px){
+	    .flex-container{
+	        flex-direction: row;
+	        justify-content: flex-start; /* flex-start | center | flex-end ซ้าย กลาง ขวา*/ 
+	        align-items:  flex-start; /* flex-start | center | flex-end บน กลางล่าง*/ 
+	    }
+	    .content{
+	    	flex-grow: 1;  /*ขนาดของตัวมันเองเทียบกับตัว flex items ตัวอื่นๆ */
+	    	order: 3;  /*กำหนดลำการขี้นแสดงก่อน deflaut เรียงจากทางซ้าย*/
+	    }
+	    .primary{
+	    	flex-grow: 1;
+	    	order: 2;
+	    }
+	    .secondary{
+	    	flex-grow: 1;
+	    	order: 1;
+	    }
+	    .box:nth-child(1){
+	    	align-self: 
+	    }
+	    @media screen and (min-width:900px) {
+			body {
+		        background-color: red;
+		    }
+		}
+	}
+</style>
+<body>
+<div class="header">
+	<p>Header</p>
+</div>
+<div class="flex-container">
+	<div class="box content">
+		<p>Main Content</p>
+	</div>
+	<div class="box sidebar primary">
+		<p>primary Sidebar</p>
+	</div>
+	<div class="box siderbar secondary">
+		<p>Secondary Sidebar</p>
+	</div>
+</div>
+<div class="footer">
+	<p>Footer</p>
+</div>
+</body>
+</html>

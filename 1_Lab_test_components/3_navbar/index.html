@@ -9,7 +9,7 @@
 	    user-scalable=yes   คือ ให้ user zoom ได้-->
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 	<meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
 	<srcipt src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></srcipt>
 	<link rel="import" href="../../../bower_components/polymer/polymer.html">
@@ -29,24 +29,30 @@
 	<link rel="import" href="../../../bower_components/paper-toolbar/paper-toolbar.html">
 	<!-- สีที่ head-panel มีมาให้-->
 	<link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="../../../bower_components/app-layout/demo/sample-content.html">
+  <link rel="import" href="../../../bower_components/paper-scroll-header-panel.html">
 </head>
-<style is="custom-style">
+    <style is="custom-style">
       #paperDrawerPanel [main] {
         text-align: center;
         background-color: var(--google-grey-100);
       }
+
       #paperDrawerPanel [drawer] {
         border-right: 1px solid var(--google-grey-300);
       }
+
       #paperDrawerPanel[right-drawer] [drawer] {
         border-left: 1px solid var(--google-grey-300);
       }
+
       paper-button {
-        color: #19C3E5FF;
+        color: #19C3E5;
         margin: 10px;
         background-color: var(--google-blue-700);
         white-space: nowrap;
       }
+
       button {
         display: block;
         line-height: 40px;
@@ -55,11 +61,13 @@
         font-size: 14px;
         margin: 20px;
       }
+
       iron-icon{
       	padding-bottom: 16px
       	padding-top: 16px;
       	padding-right: 16px;
       }
+
       paper-item{
 
       }
@@ -70,69 +78,63 @@
       	--paper-toolbar-background:var(--paper--Deep-Orange-500, #FF5722);
       	--paper-toolbar-title{
       		color: var(--paper--gray-50, #FAFAFAFA);
-      	}
+        }
       }
+      .nav-bar{
+        height:200px;
+      }
+      #button-left{
+        color: red;
+          position:fixed;
+          bottom:0;
+          right: 0;
+          width: 200px;
+          border: 3px solid #73AD21;
+      }
+
     </style>
   </head>
 
   <body unresolved>
-	
+	 
     <paper-drawer-panel id="paperDrawerPanel" force-narrow>
       <div drawer>
-      	<div class="nav-bar">
-      		dfdfdfds <br><iron-icon icon="icons:inbox"></iron-icon><br><br><br><br><br><br><br><br>
+      	<div class="nav-bar" 0>
+      		dfdfdfds <br><iron-icon icon="icons:inbox"></iron-icon>
       	</div>
         <paper-listbox attrForItemTitle="test">
         <hr/>
         	<paper-item><iron-icon icon="icons:inbox"></iron-icon>All inboxes</paper-item>
           <hr/>
           <paper-item><iron-icon icon="icons:inbox"></iron-icon>Inbox</paper-item>
-          <hr/>
+          <hr/>Recent labels
           <paper-item><iron-icon icon="icons:folder"></iron-icon>member</paper-item>
           <paper-item><iron-icon icon="icons:folder"></iron-icon>alibaba.com</paper-item>
+          <hr/>All labels
           <paper-item><iron-icon icon="icons:flag"></iron-icon>Flaged</paper-item>
           <paper-item><iron-icon icon="icons:drafts"></iron-icon>Unread</paper-item>
-          <paper-item><iron-icon icon="icons:description"></iron-icon>Drafts</paper-item>
+          <!--<paper-item><iron-icon icon="icons:description"></iron-icon>Drafts</paper-item>
           <paper-item><iron-icon icon="icons:inbox"></iron-icon>Outbox</paper-item>
           <paper-item><iron-icon icon="icons:send"></iron-icon>Sent</paper-item>
           <paper-item><iron-icon icon="icons:inbox"></iron-icon>Bin</paper-item>
           <paper-item><iron-icon icon="icons:folder"></iron-icon>member</paper-item>
           <paper-item><iron-icon icon="icons:folder"></iron-icon>alibaba.com</paper-item>
           <paper-item><iron-icon icon="icons:settings"></iron-icon>Setting</paper-item>
-          <paper-item><iron-icon icon="icons:help"></iron-icon>Help & feedback</paper-item>
+          <paper-item><iron-icon icon="icons:help"></iron-icon>Help & feedback</paper-item>-->
         </paper-listbox>
       </div>
       <div main>
       	<paper-toolbar>
-		    <paper-icon-button icon="menu" ></paper-icon-button>
-		    <paper-button raised><iron-icon icon="icons:menu"></iron-icon>1515</paper-button>
-		    <paper-icon-button icon="favorite" style="color: red;"></paper-icon-button>
-		  	<span class="title">Title</span>
+		    <paper-icon-button icon="menu" paper-drawer-toggle id="button"></paper-icon-button>
+		    <span class="title">Title</span>
   			<paper-icon-button icon="refresh"></paper-icon-button>
 		  	<paper-icon-button icon="add">+</paper-icon-button>
-		</paper-toolbar>
-        <div>
-          <paper-button onclick="flipDrawer()" raised><iron-icon icon="icons:inbox"></iron-icon>flip drawer</paper-button>
-        </div>
-        <div>
-          <paper-button paper-drawer-toggle raised id="button">toggle drawer</paper-button>
+		    </paper-toolbar>
+        <div id="button-left"><paper-button raised>Raised button</paper-button></div>
+        <div content>
+          content  contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent
         </div>
       </div>
     </paper-drawer-panel>
-	
-    <script>
-      (function(global) {
-        'use strict';
-        var DRAWER_ATTR = 'right-drawer';
-        var pdp = document.getElementById('paperDrawerPanel');
-        global.flipDrawer = function() {
-          if (pdp.hasAttribute(DRAWER_ATTR)) {
-            pdp.removeAttribute(DRAWER_ATTR);
-          } else {
-            pdp.setAttribute(DRAWER_ATTR, '');
-          }
-        }
-      }(this));
-    </script>
 </body>
 </html>

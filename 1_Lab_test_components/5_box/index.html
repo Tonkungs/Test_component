@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sample toolbar</title>
+	<!--width=device-width  คือ ให้กว้างตามขนาดตั้งต้นของเครื่องที่เปิด 
+	    initial-scale=1.0   คือ ไม่ต้องการให้เว็บมัน zoom  
+	    minimum-scale=0.5, maximum-scale=2   คือการตำกัดการ zoom
+	    user-scalable=yes   คือ ให้ user zoom ได้-->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+	<srcipt src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></srcipt>
+	<link rel="import" href="../../../bower_components/polymer/polymer.html">
+	<link rel="import" href="../../../bower_components/paper-toolbar/paper-toolbar.html">
+	<link rel="import" href="../../../bower_components/paper-ripple/paper-ripple.html">
+	<link rel="import" href="../../../bower_components/app-layout/demo/sample-content.html">
+	<link rel="import" href="../../../bower_components/iron-icons/iron-icons.html">
+	<link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
+	<link rel="import" href="../../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+	<!-- สีที่ polymer มีมาให้-->
+	<link rel="import" href="../../../bower_components/paper-styles/color.html">
+	<!-- กล่องมีขอบที่ polymer มีมาให้-->
+	<link rel="import" href="../../../bower_components/paper-styles/shadow.html">
+	<!-- side-bar ที่ polymer มีมาให้-->
+	<link rel="import" href="../../../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+	<!-- ปุ่มที่ polymer มีมาให้-->
+	<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+	<!-- layout polymer มีมาให้-->
+	<link rel="import" href="../../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+	<!-- สีที่ paper-listbox มีมาให้-->
+	<link rel="import" href="../../../bower_components/paper-listbox/paper-listbox.html">
+	<!-- สีที่ paper-item มีมาให้-->
+	<link rel="import" href="../../../bower_components/paper-item/paper-item.html">
+	  <style is="custom-style">
+	    body {
+	      margin: 0;
+	      font-family: 'Roboto', 'Noto', sans-serif;
+	      background-color: var(--paper--white, #FFFFFF);
+	    }
+	    #paperDrawerPanel {/*กรอบของเว็บ*/
+	    	--paper-drawer-panel-main-container: {
+			    background-color: var(--paper--gray-50, #FAFAFA);
+		  };
+		}
+		#paperDrawerPanel [drawer] {/*ลงสีเมนูเ้านซ้าย*/
+			background-color: var(--paper--gray-200, #EEEEEE);
+		}
+		#paperlistbox {
+			--paper-listbox-background-color:var(--paper--gray-200, #EEEEEE); /*สีพื้นหลัง*/
+			--paper-listbox-color:black;  /*สีฟอร์*/
+		}
+		#paperlistbox [main]{/*paperlistbox ที่มีแอนทริบิว main */
+			height: 100px
+		}
+		.drawer{
+			background-color: red;
+		}
+		paper-item{
+			--paper-item-selected:{ 
+				color:#C53929;
+				background-color: var(--paper--gray-200, #EEEEEE);/*สร้างสีที่เลือก*/
+				border-left:#C53929 solid ; /*สร้างขอบด้านซ้าย*/
+			}
+		}
+		paper-item:hover{ /*ตอนเมาชี้*/
+			--paper-item-focused: {
+				background-color: var(--paper--gray-300, #E0E0E0);
+			}
+		}
+		.icon-drawer{ /*สร้างความห่างกันของicon*/
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+
+    	paper-scroll-header-panel {
+		  height: 100%;
+		}
+		paper-toolbar {
+		    --paper-toolbar-background: #EEEEEE; /*สี พื้นหลัง*/
+		    --paper-toolbar-color:var(--paper--black, #000000);  /*สี font*/
+		    --paper-toolbar-title: {
+				font-style: italic;
+		      	font-weight: bold;
+		    };
+		}
+		paper-button.deep-orange {
+			margin-left: 70px;
+			margin-top: 20px;
+			height: 22px;
+			width: 100px;
+			background-color: var(--paper-deep-orange-900);
+		    color: white;
+		    --paper-button-raised-keyboard-focus: { 
+		      background-color: var(--paper-deep-orange-900) !important;
+		      color: white !important;
+		    };/*กรณีใช้ keyboard*/
+		}
+		.flex-container {
+		    display: -webkit-flex;
+		    display: flex;
+		    width: 400px;
+		    height: 250px;
+		    background-color: lightgrey;
+		}
+
+		.flex-item {
+		    background-color: cornflowerblue;
+		    width: 100px;
+		    margin: 10px;
+		}
+
+  </style>
+
+</head>
+<body unresolved>
+	<paper-drawer-panel id="paperDrawerPanel" responsive-width="960px">
+
+	  	<paper-scroll-header-panel  drawer fixed>
+	    	<paper-toolbar>
+	      		<div>Menu</div>
+	    	</paper-toolbar>
+	    	<div>
+	    		<paper-listbox id="paperlistbox" attrForItemTitle="test">
+			        <paper-button raised class="custom deep-orange">ใหม่</paper-button>
+      				<paper-item><iron-icon class="icon-drawer" icon="icons:inbox"></iron-icon>ไดรฟ์ของฉัน</paper-item>
+			        <paper-item><iron-icon class="icon-drawer" icon="icons:inbox"></iron-icon>ที่แชร์กับฉัน</paper-item>
+			        <paper-item><iron-icon class="icon-drawer" icon="icons:folder"></iron-icon>Google รูปภาพ</paper-item>
+			        <paper-item><iron-icon class="icon-drawer" icon="icons:folder"></iron-icon>ล่าสุด</paper-item>
+			        <paper-item><iron-icon class="icon-drawer" icon="icons:flag"></iron-icon>ที่ติดดาว</paper-item>
+			        <paper-item><iron-icon class="icon-drawer" icon="icons:drafts"></iron-icon>ถังขยะ</paper-item>
+			        
+			    </paper-listbox>
+			</div>
+
+	  	</paper-scroll-header-panel>
+		<paper-scroll-header-panel class="main" main fixed>
+
+		    <paper-toolbar class="red">
+		      	<paper-icon-button icon="menu" paper-drawer-toggle ></paper-icon-button>
+		      		<div>Title</div>
+		    </paper-toolbar>
+	    	<div class="content">
+	    		<div>
+	    		<div class="flex-container">
+				  <div class="flex-item">flex item 1</div>
+				  <div class="flex-item">flex item 2</div>
+				  <div class="flex-item">flex item 3</div>  
+				</div>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    			a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+	    		</div>
+	    	</div>
+
+	  	</paper-scroll-header-panel>
+	</paper-drawer-panel>
+</body>
+</html>
