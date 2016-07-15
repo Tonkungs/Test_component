@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+  </head>
+  <body>
+
+    <script>
+    MyElement = Polymer({
+
+      is: 'my-element',
+
+      factoryImpl: function(foo, bar) {
+        console.log('on factoryImpl');
+        this.foo = foo;
+        this.configureWithBar("call configureWithBar by factoryImpl");
+      },
+
+      configureWithBar: function(bar) {
+        console.log(bar);
+      }
+
+    });
+
+    var el = new MyElement(42, 'octopus');
+
+    </script>
+
+  </body>
+</html>

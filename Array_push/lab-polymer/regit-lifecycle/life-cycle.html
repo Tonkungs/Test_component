@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+  </head>
+  <body>
+    <dom-module id="my-element">
+      <template>
+        <button on-tap="changeAttr"> Change Attribute </button>
+        <button on-tap="delElement"> Delete Element </button><br>
+        Please look to Console.
+      </template>
+      <script>
+        MyElement = Polymer({
+
+          is: 'my-element',
+          properties:{
+            testProps:{
+              type:String,
+              value:true
+            }
+          },
+
+          created: function() {
+            console.log(this.localName + '#' + this.id + ' was created');
+            this.checkProps();
+          },
+
+          ready: function() {
+            console.log(this.localName + '#' + this.id + ' has local DOM initialized');
+            this.checkProps();
+          },
+
+          factoryImpl: function(){
+            console.log('factoryImpl() Active');
+          },
+
+          attached: function() {
+            console.log(this.localName + '#' + this.id + ' was attached');
+          },
+
+          detached: function() {
+            console.log(this.localName + '#' + this.id + ' was detached');
+            console.log('*element has deleted*');
+          },
+
+          attributeChanged: function(name, type) {
+            console.log(this.localName + '#' + this.id + ' attribute ' + name +
+            ' was changed to ' + this.getAttribute(name));
+          },
+
+
+          delElement: function() {
+            this.remove();
+          },
+
+          changeAttr: function(){
+            this.setAttribute("class", "testClass");
+          },
+
+          checkProps: function(){
+            console.log('*Props is --'+this.testProps+'--*');
+          },
+
+        });
+
+        //This bellow for test factoryImpl()
+        //var el1 = new MyElement();
+      </script>
+    </dom-module>
+
+    <my-element id="el1"></my-element>
+
+  </body>
+</html>

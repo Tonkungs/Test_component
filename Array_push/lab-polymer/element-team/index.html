@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
+    <link rel="import" href="list-main.html">
+    <link rel="import" href="box-main.html">
+  </head>
+  <body>
+
+    <list-app></list-app>
+
+    <dom-module id="list-app">
+      <style>
+        .container{
+          display: flex;
+          background-color: #CCC;
+        }
+        .item{
+          margin:10px;
+          width: 50%;
+        }
+
+        .box{
+          padding: 10px;
+          align-self: stretch;
+          background-color:#FFFFCC;
+        }
+      </style>
+
+      <template>
+        <div class="container">
+          <list-main list="{{data}}" class="item"></list-main>
+          <box-main list="{{data}}" class="item box"></box-main>
+        </div>
+      </template>
+
+      <script>
+        Polymer({
+          is:'list-app',
+          properties:{
+            data:{
+              type:Object,
+              value:[
+                { name:"ทดสอบ 1" , detail:"รายละเอียด"},
+                { name:"ทดสอบ 2" , detail:"รายละเอียด"}
+              ]
+            }
+          }
+
+        });
+      </script>
+
+    </dom-module>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="data-list-item">
+
+  <template>
+    <li>
+      {{mixza}}
+    </li>
+  </template>
+
+  <script>
+    Polymer({
+      is: "data-list-item",
+      properties:{
+        fname:{
+          type:String,
+          value:'unknow'
+        },
+        mixza:{
+            type:String,
+            computed:'mix(fname,lname)'
+        }
+      },
+      mix:function(fname,lname){
+        return fname + '>' + lname;
+      }
+    });
+  </script>
+
+</dom-module>

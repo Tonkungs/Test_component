@@ -1,0 +1,35 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="props-binding">
+
+  <template>
+    <div>
+      ขื่อ:{{fname}}<br>นามสกุล:{{lname}}<br>
+      <b>{{full}}</b>
+      <p><input type="text" value="{{fname::input}}"></p>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: "props-binding",
+      properties: {
+        fname: String,
+        lname:{
+          type: String,
+          value: 'Sosaket'
+        },
+        full:{
+          type: String,
+          computed: 'allName(fname,lname)'
+        }
+      },
+
+      allName: function(frist,last){
+        return frist + '-' + last;
+      }
+
+    });
+  </script>
+
+</dom-module>

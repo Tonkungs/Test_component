@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+  </head>
+  <body>
+
+    <script>
+        // register an element
+        MyElement = Polymer({
+          is: 'my-element',
+
+          // See below for lifecycle callbacks
+          created: function() {
+            console.log("on function created");
+            this.textContent = 'My element!';
+          }
+        });
+
+        // create an instance with createElement:
+        var el1 = document.createElement('my-element');
+
+        // ... or with the constructor:
+        var el2 = new MyElement();
+    </script>
+
+  </body>
+</html>

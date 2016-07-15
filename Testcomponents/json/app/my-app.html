@@ -1,0 +1,38 @@
+<dom-module id="my-app">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>ทดสอบ json
+      <iron-ajax
+          auto
+          url="http://localhost:8000/Test_component/Testcomponents/json/data/test.json"
+          handle-as="json"
+          last-response="{{response}}"></iron-ajax>
+
+        <template is="dom-repeat" items="{{response}}">
+          <span>{{item.first}}</span>
+            <span>{{item.last}}</span>
+        </template>
+
+    <!-- <iron-ajax auto
+              url="http://jsonplaceholder.typicode.com/posts/"
+              handle-as="json"
+              last-response="{{ajaxResponse}}"></iron-ajax>
+
+            <template is="dom-repeat" items="{{ajaxResponse}}">
+              <span>{{item.userId}}</span> <br>
+              <span>{{item.id}}</span><br>
+              <span>{{item.title}}</span><br>
+              <span>{{item.body}}</span>
+            </template> -->
+  </template>
+
+  <script>
+    Polymer({
+      is: "my-app",
+
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,26 @@
+<link rel="import" href="../../../../../bower_components/polymer/polymer.html">
+
+<style>
+  .label{
+    color:green;
+  }
+</style>
+<dom-module id="creating-a-one-time-binding">
+  <template>
+    <label style="color:green;">Set value of color: <input type="text" value="{{color}}"></label>
+    <p>Initial value of color: [[color]]</p>
+    <p>Current value of color: {{color}}</p>
+  </template>
+  <script>
+    Polymer({
+      is:'creating-a-one-time-binding',
+      properties:{
+        color:{
+          type:String,
+          value:'red'
+        }
+      }
+    });
+  </script>
+  
+</dom-module>

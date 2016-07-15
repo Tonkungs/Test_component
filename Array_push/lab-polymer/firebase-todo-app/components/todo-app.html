@@ -1,0 +1,52 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="todo-form.html">
+<link rel="import" href="todo-list.html">
+
+<dom-module id="todo-app">
+  <template>
+
+    <div class="row">
+      <div class="col m4">
+        <div class="card"><br>
+          <todo-form todos="{{sourceTodos}}"></todo-form>
+          <todo-list todos="{{sourceTodos}}"></todo-list>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'todo-app',
+      ready: function() {
+
+        var setTodoList = this.setTodoList.bind(this);
+
+
+        var myFirebaseRef = new Firebase("https://sizzling-inferno-2634.firebaseio.com/");
+
+        
+        myFirebaseRef.child("todoList").on("value", function(snapshot) {
+          var dataList = snapshot.val();
+          //console.log(dataList.length)
+          setTodoList(snapshot.val());
+        });
+
+      },
+
+      setTodoList:function(data){
+        this.sourceTodos=data;
+      },
+
+      sourceTodos:[{name:'aaa'}],
+      properties:{
+        sourceTodos:{
+          type: 'object',
+          value:[]
+        }
+      }
+    });
+  </script>
+</dom-module>

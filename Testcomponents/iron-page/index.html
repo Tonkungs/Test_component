@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+     <link rel="import" href="../../../bower_components/polymer/polymer.html">
+    <link rel="import" href="../../../bower_components/iron-pages/iron-pages.html">
+  </head>
+  <body>
+
+    <dom-module id="view-frist">
+      <template>
+        Frist 1{{data}}
+      </template>
+      <script>
+          Polymer({
+            is: 'view-frist'
+          });
+      </script>
+    </dom-module>
+
+    <dom-module id="view-second">
+      <template>
+        Second 2{{data}}
+      </template>
+      <script>
+          Polymer({
+            is: 'view-second'
+          });
+      </script>
+    </dom-module>
+
+	 <dom-module id="view-tirth">
+      <template>
+        Tirth 3{{data}}
+      </template>
+      <script>
+          Polymer({
+            is: 'view-tirth'
+          });
+      </script>
+    </dom-module>
+
+    <dom-module id="main-element">
+      <template>
+      <input type="text" value="{{tete::input}}">
+        <button on-tap="doSwitch">Switch</button>
+        <iron-pages role="main" selected="[[selectPage]]" attr-for-selected="name">
+          <view-frist name="viewFrist"  data="{{tete}}"></view-frist>
+          <view-tirth name="viewTirth" data="8888"></view-tirth>
+          <view-second name="viewSecond" data="5555"></view-frist>
+          
+        </iron-pages>
+      </template>
+      <script>
+          Polymer({
+            is: 'main-element',
+            properties:{
+              selectPage:{
+                type:String,
+                value:"viewTirth"
+              },
+              tete:{
+              	type:Number,
+              	value:5
+              }
+            },
+            doSwitch:function(){
+              // if(this.selectPage=="viewFrist"){
+              //   this.selectPage="viewSecond";
+              // }else{
+              //   this.selectPage="viewFrist";
+              // }
+              console.log(this.selectPage);
+              switch (this.selectPage) {
+                case 'viewFrist':
+                    this.selectPage="viewSecond";
+                  break;
+                case 'viewSecond':
+                    this.selectPage="viewTirth";
+                  break;
+                case 'viewTirth':
+                    this.selectPage="viewFrist";
+                  break;
+              }
+            }
+          });
+      </script>
+    </dom-module>
+
+    <main-element></main-element>
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <link rel="import" href="../bower_components/iron-media-query/iron-media-query.html">
+  <body>
+
+
+
+
+
+    <dom-module id="test-tt">
+      <template>
+        <iron-media-query query="(min-width: 600px)" query-matches="{{queryMatches}}"></iron-media-query>
+        {{queryMatches}}
+        <template is="dom-if" if="{{queryMatches}}">
+          11
+        </template>
+      </template>
+
+      <script>
+        Polymer({
+          is: 'test-tt'
+        });
+      </script>
+
+    </dom-module>
+
+
+
+    <test-tt></test-tt>
+  </body>
+</html>

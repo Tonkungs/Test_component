@@ -1,0 +1,62 @@
+<dom-module id="my-global">
+
+  <template>
+    <button on-tap="changData">changData</button>
+    <button on-tap="checkData">check</button>
+  </template>
+
+  <script>
+    Polymer({
+      is: "my-global",
+      properties: {
+        data: {
+          type: Object,
+          value:[{id:0,name:'nk'},{id:1,name:'bb'}],
+          notify:true
+        }
+      },
+      changData:function(){
+        this.set('data.0.name','zz');
+      },
+      checkData:function(){
+        console.log(this.data);
+      }
+    });
+  </script>
+
+</dom-module>
+
+
+<dom-module id="my-get">
+
+  <template>
+    my-get<br>
+    [[changItem(data.*)]]
+    <button on-tap="changeData">changeData</button>
+    <button on-tap="checkData">check</button>
+  </template>
+
+  <script>
+    Polymer({
+      is: "my-get",
+      properties: {
+        data: {
+          type: Object,
+          notify:true
+        }
+      },
+      changeData:function(){
+        //this.data[0].name = 'dd';
+        this.set('data.0.name','dd');
+      },
+      checkData:function(){
+        console.log(this.data);
+      },
+      changItem:function(obj){
+        console.log(obj);
+        return obj.base[0].name
+      }
+    });
+  </script>
+
+</dom-module>

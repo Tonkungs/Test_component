@@ -1,0 +1,45 @@
+<dom-module id="layout-right">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>เมนูซ้าย</title>
+    </head>
+    <body>
+      <paper-drawer-panel responsive-width="960px" right-drawer>
+        <paper-scroll-header-panel drawer fixed>
+          <paper-toolbar>
+            <span class="title">Menu</span>
+          </paper-toolbar>
+          <div>
+            เมนูซ้าย
+          </div>
+        </paper-scroll-header-panel>
+        <paper-scroll-header-panel main fixed>
+          <paper-toolbar>
+            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+            <span class="title">Main</span>
+          </paper-toolbar>
+          <div>
+            <content></content>
+          </div>
+        </paper-scroll-header-panel>
+      </paper-drawer-panel>
+    </body>
+  </html>
+
+  </template>
+  <script>
+    Polymer({
+      is: "layout-right",
+
+    });
+  </script>
+</dom-module>

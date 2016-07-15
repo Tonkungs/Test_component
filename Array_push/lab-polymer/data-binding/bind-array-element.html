@@ -1,0 +1,41 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="bind-array-element">
+
+  <template>
+    <div>[[arrayItem(myArray.*, 0, 'name')]]</div>
+    <div>[[arrayItem(myArray.*, 1, 'name')]]</div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'bind-array-element',
+
+      properties: {
+
+        myArray: {
+          type: Array,
+          value: [{ name: 'Bob' }, { name: 'Doug' } ]
+        }
+      },
+
+      // first argument is the change record for the array change,
+      // change.base is the array specified in the binding
+      arrayItem: function(change, index, path) {
+        // this.get(path, root) returns a value for a path
+        // relative to a root object.
+        //console.log(change);
+        return this.get(path, change.base[index]);
+      },
+
+      ready: function() {
+        // mutate the array
+        this.unshift('myArray', { name: 'Susan' });
+        // change a subproperty
+        this.set('myArray.1.name', 'Rupert');
+        //console.log(this.myArray);
+      }
+    });
+  </script>
+
+</dom-module>

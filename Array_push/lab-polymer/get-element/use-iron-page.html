@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+  </head>
+  <body>
+
+    <dom-module id="view-frist">
+      <template>
+        Frist
+      </template>
+      <script>
+          Polymer({
+            is: 'view-frist'
+          });
+      </script>
+    </dom-module>
+
+    <dom-module id="view-second">
+      <template>
+        Second
+      </template>
+      <script>
+          Polymer({
+            is: 'view-second'
+          });
+      </script>
+    </dom-module>
+
+    <dom-module id="main-element">
+      <template>
+        <button on-tap="doSwitch">Switch</button>
+        <iron-pages role="main" selected="[[selectPage]]" attr-for-selected="name">
+          <view-frist name="viewFrist"></view-frist>
+          <view-second name="viewSecond"></view-frist>
+        </iron-pages>
+      </template>
+      <script>
+          Polymer({
+            is: 'main-element',
+            properties:{
+              selectPage:{
+                type:String,
+                value:"viewFrist"
+              }
+            },
+            doSwitch:function(){
+              if(this.selectPage=="viewFrist"){
+                this.selectPage="viewSecond";
+              }else{
+                this.selectPage="viewFrist";
+              }
+            }
+          });
+      </script>
+    </dom-module>
+
+    <main-element></main-element>
+
+
+
+
+
+  </body>
+</html>

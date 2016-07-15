@@ -1,0 +1,20 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="child-element.html">
+<dom-module id="host-element">
+  <template>
+    <b>host-element :</b>{{dataForHost}}<br>
+    <child-element data-for-child="{{dataForHost}}"></child-element>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'host-element',
+      properties:{
+        dataForHost : {
+          type:String,
+          value:"data by host"
+        }
+      },
+    });
+  </script>
+</dom-module>

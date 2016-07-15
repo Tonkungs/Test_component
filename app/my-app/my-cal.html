@@ -1,0 +1,45 @@
+<link rel="import" href="my-input.html">
+<link rel="import" href="my-button.html">
+<dom-module id="my-cal">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+      <my-input value={{x::input}} ></my-input>
+      <my-input value={{y::input}}></my-input>
+      <my-button title="คำนวน {{buttonTitle}}" on-tap="calculation_click"></my-button>
+      <label>{{z}}</label>
+  </template>
+  <script>
+    Polymer({
+      is: "my-cal",
+      properties: {
+        buttonTitle: {
+          type: String,
+          value:"xxx"
+        },
+        x: {
+          type:Number,
+          value:0
+        },
+        y: {
+          type:Number,
+          value:0
+        },
+        z:{
+          type:Number
+          // computed: "calculation(x,y)"
+        }
+      },
+
+      // calculation: function(x,y){
+      //   return parseInt(x)+parseInt(y);
+      // },
+      calculation_click: function(){
+        this.z = parseInt(this.x)-parseInt(this.y);
+      }
+    });
+  </script>
+</dom-module>

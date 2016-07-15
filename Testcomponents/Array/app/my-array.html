@@ -1,0 +1,32 @@
+<dom-module id="my-array">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+      <h1>1st Place: [[firstUser]]</h1>
+      <paper-input label="Input label" value="{{firstUser}}"></paper-input>
+      <button type="button" on-tap="check">rfff</button>
+  </template>
+  <script>
+    Polymer({
+      is: "my-array",
+      properties: {
+        users: {
+          type: Array,
+          value: function(){
+            return ['Eric','Addy','Matt'];
+          }
+        }
+      },
+      observers:['usersChanged(users.*,0)'],
+      usersChanged: function(changeRecord, index) {
+        this.firstUser = changeRecord.base[index];
+      },
+      check:function(){
+        console.log(this.users);
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,85 @@
+<link rel="import" href="my-gridster/my-gridster.html">
+<dom-module id="my-app">
+  <style>
+  paper-card{
+    height: 300px;
+  }
+  .card-s{
+    width: 315px;
+  }
+  .card-m{
+    width: 650px;
+  }
+  .card-l{
+    width: 985px;
+  }
+  </style>
+  <template>
+    ตัวที่ <input type="text" id ="co" name="name" value="">
+    x  <input type="text" id ="x" name="name" value="">
+    y  <input type="text" id ="y" name="name" value="">
+      <button type="button" name="button" on-tap="edit">เปลี่ยนขนาด</button>
+      <button type="button" name="button" on-tap="add">เพิ่มกรอบ</button>
+      <button type="button" name="button" on-tap="jsonexport">export</button>
+    <my-gridster>
+
+      <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <paper-card id="0"heading="Card Title" class="card-s">
+          <div class="card-content">0</div>
+          <div class="card-actions">
+            <paper-button>Some action</paper-button>
+          </div>
+        </paper-card>
+      </li>
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+        <paper-card id="1"heading="Card Title" class="card-s">
+          <div class="card-content">1</div>
+          <div class="card-actions">
+            <paper-button>Some action</paper-button>
+          </div>
+        </paper-card>
+      </li>
+      <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+        <paper-card id="2"heading="Card Title" class="card-s">
+          <div class="card-content">2</div>
+          <div class="card-actions">
+            <paper-button>Some action</paper-button>
+          </div>
+        </paper-card>
+      </li>
+      <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+        <paper-card id="3"heading="Card Title" class="card-s">
+          <div class="card-content">3</div>
+          <div class="card-actions">
+            <paper-button>Some action</paper-button>
+          </div>
+        </paper-card>
+      </li>
+    </my-gridster>
+  </template>
+  <script>
+    Polymer({
+      is: "my-app",
+      ready: function() {
+        console.log(15);
+      },
+      add:function(){
+        gridster.add_widget('<li class="new">The HTML of the widget...</li>', 1, 1);
+      },
+      edit:function(){
+        // console.log(1);
+        var co = document.getElementById('co').value;
+        var x = document.getElementById('x').value;
+        var y = document.getElementById('y').value;
+        let paper = document.getElementById(co);
+        let css_card = ['card-s','card-m','card-l'];
+        // -1 เพราะ array เริ่มที่ 0
+        paper.className = css_card[x-1]+' style-scope my-app x-scope paper-card-0';
+        gridster.resize_widget(gridster.$widgets.eq(co),x,y);
+      },
+      jsonexport:function(){
+        console.log(JSON.stringify(gridster.serialize()));
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+  </head>
+  <body>
+
+    <my-element></my-element>
+
+
+    <dom-module id="im-element">
+      <template>
+        {{tp}}
+      </template>
+      <script>
+          Polymer({
+            is: 'im-element'
+          });
+      </script>
+    </dom-module>
+
+
+    <dom-module id="my-element">
+      <template>
+        <button on-tap="changeProps">Change Props</button>
+        {{testData}}
+        <div id="main-node"></div>
+      </template>
+      <script>
+          Polymer({
+            is: 'my-element',
+            properties:{
+              testData :{
+                type:String,
+                value:'Before Data',
+                observer:'refreshElement'
+              }
+            },
+            refreshElement: function() {
+
+              let mainNode = Polymer.dom(this.root).querySelector('#main-node');
+              mainNode.innerHTML = '';
+
+              let toLocal = document.createElement('im-element');
+              toLocal.tp = this.testData;
+              mainNode.appendChild(toLocal);
+
+            },
+            changeProps:function(){
+              this.testData = "After Data";
+              console.log('test');
+            }
+          });
+
+      </script>
+    </dom-module>
+
+
+
+  </body>
+</html>

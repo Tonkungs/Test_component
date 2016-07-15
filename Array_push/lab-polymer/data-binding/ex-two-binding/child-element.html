@@ -1,0 +1,25 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="child-element">
+  <template>
+    <b>child-element:</b>{{dataForChild}}<br>
+    <button on-tap="changeData">Change</button>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'child-element',
+      properties:{
+        dataForChild : {
+          type:String,
+          notify: true
+        }
+      },
+      changeData : function(){
+        this.dataForChild="data by child";
+      }
+
+    });
+  </script>
+</dom-module>

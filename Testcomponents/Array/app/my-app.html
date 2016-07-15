@@ -1,0 +1,35 @@
+<dom-module id="my-app">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <div>Manger: <span>{{user.manger}}</span></div>
+    <paper-input label="Input label" value="{{user.manger}}"></paper-input>
+    <button type="button" on-tap="changerManger">changer Manger</button>
+  </template>
+  <script>
+    Polymer({
+      is: "my-app",
+      properties: {
+        user: {
+          type: Object,
+          value: function(){
+            return { name:'Rob', manger: 'Paul'};
+          }
+        }
+      },
+      changerManger:function(){
+        // ใช้ไม่ได้เนื่องจากติด propereffects  และ setter  และ part binding ที่เข้าไปที้ {user.manger ข้างบน
+        // this.user.manger = 'Fred';
+        console.log(this.user.manger);
+        // this.user = { name:'Rob', manger: 'Fred'};
+        // this.user.manger = 'Fred';
+        // this.notifyPath('user.manger',this.user.manger);
+        // แบบสั้น
+        this.set('user.manger','Fred');
+      }
+    });
+  </script>
+</dom-module>

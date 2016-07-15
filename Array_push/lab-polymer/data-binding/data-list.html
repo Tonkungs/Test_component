@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="./data-list-item.html">
+
+<dom-module id="data-list">
+
+  <template>
+    {{test}}
+    <ul>
+      <template is="dom-repeat" items="{{contacts}}">
+        <data-list-item fname="{{item.fristname}}" lname="{{item.lastname}}"></data-list-item>
+      </template>
+    </ul>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: "data-list",
+    ready: function(){
+      this.test = "line is variable in ready function.";
+      this.contacts = [
+        {
+          fristname: "Pongpanot",
+          lastname: "Tassaneeyachumphalee"
+        },
+        {
+          fristname: "Siriporn",
+          lastname: "Sosaket"
+        },
+        {
+          fristname: "Pattarapong",
+          lastname: "Tassaneeyachumphalee"
+        },
+      ]
+    }
+  });
+</script>

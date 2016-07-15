@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link rel="import" href="../bower_components/polymer/polymer.html">
+  <link rel="import" href="behavior.html">
+</head>
+<body>
+
+  <dom-module id="my-element">
+
+    <template>
+      {{dataFromBehavior}}
+    </template>
+
+    <script>
+      Polymer({
+        is: "my-element",
+        behaviors: [testBehavior]
+      });
+    </script>
+
+  </dom-module>
+
+  <my-element></my-element>
+
+</body>
+</html>

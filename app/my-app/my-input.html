@@ -1,0 +1,21 @@
+<dom-module id="my-input">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <input type="text" >
+  </template>
+  <script>
+    Polymer({
+      is: "my-input",
+      properties: {
+        value: {
+          type: Number,
+          notify: true
+        }
+      }
+    });
+  </script>
+</dom-module>

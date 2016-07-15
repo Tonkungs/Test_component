@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+  </head>
+  <body>
+
+      <script>
+        myBehavior = {
+          properties:{
+            testProp:{
+              type:String,
+              value:'test',
+              notify: true
+            }
+          },
+          _testFunc:function(){
+            this.testProp = '1234';
+            console.log(this.testProp);
+          }
+        }
+
+      </script>
+
+    <dom-module id="my-component">
+      <template>
+        {{testProp}}<br>
+        <button on-tap="_testFunc">Click</button>
+      </template>
+      <script>
+          Polymer({
+            is: 'my-component',
+            behaviors: [myBehavior]
+          });
+      </script>
+    </dom-module>
+
+    <dom-module id="my-component2">
+      <template>
+        <button on-tap="_testFunc">Click</button>
+        component2 : {{testProp}}
+      </template>
+      <script>
+          Polymer({
+            is: 'my-component2',
+            behaviors: [myBehavior]
+          });
+      </script>
+    </dom-module>
+
+
+    <my-component></my-component><br />
+    <my-component2></my-component2>
+
+  </body>
+</html>

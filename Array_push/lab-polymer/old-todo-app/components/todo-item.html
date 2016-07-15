@@ -1,0 +1,18 @@
+<link rel="import" href="../../../../../bower_components/polymer/polymer.html">
+<link rel="import" href="todo-item.html">
+<dom-module id="todo-item">
+
+
+  <template>
+    <a on-tap="_delete" href="#!" style="border-bottom:1px solid #e0e0e0;" class="collection-item">{{todo.name}}<span class="badge">x</span></a>
+  </template>
+  <script>
+    Polymer({
+      is: 'todo-item',
+      _delete:function(){
+        //alert(this.todo.name);
+        this.fire('delete',this.todo);
+      }
+    });
+  </script>
+</dom-module>

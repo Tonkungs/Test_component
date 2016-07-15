@@ -1,0 +1,20 @@
+<dom-module id="my-button">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+      <button type="button" name="button" >{{title}}</button>
+  </template>
+  <script>
+    Polymer({
+      is: "my-button",
+      properties: {
+        title: {
+          type: String
+        }
+      }
+    });
+  </script>
+</dom-module>

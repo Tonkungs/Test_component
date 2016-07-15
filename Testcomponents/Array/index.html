@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="import" href="../../../bower_components/polymer/polymer.html">
+    <!-- <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+    <link rel="import" href="app/my-app.html">
+    <link rel="import" href="app/my-app-op.html">
+    <link rel="import" href="app/my-array.html"> -->
+    <link rel="import" href="app/my-test.html">
+    <title></title>
+  </head>
+  <body>
+    <!-- <my-app></my-app> -->
+    <!-- <my-app-op id="test"></my-app-op> -->
+  <!-- <my-array id="test3"></my-array> -->
+
+  <my-app></my-app>
+
+  <dom-module id="my-app">
+
+      <template>
+
+        [[changItem(dataMain.*)]]
+        <my-global data="{{dataMain}}"></my-global>
+        <hr>
+        my-app<br>
+        <button on-tap="checkData">checkData</button>
+
+        <hr>
+
+        <my-get data="[[dataMain]]"></my-get>
+
+      </template>
+
+      <script>
+        Polymer({
+          is: "my-app",
+          properties: {
+            dataMain: {
+              type: Object
+            }
+          },
+          checkData:function(){
+            console.log(this.dataMain);
+          },
+          changItem:function(obj){
+            console.log(obj);
+            return obj.base[0].name
+          }
+        });
+      </script>
+
+  </dom-module>
+
+
+  </body>
+</html>

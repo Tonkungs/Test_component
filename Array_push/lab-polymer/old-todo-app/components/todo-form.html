@@ -1,0 +1,36 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="todo-form">
+  <template>
+    <div class="row">
+      <div class="input-field col m12">
+        <i class="material-icons prefix">mode_edit</i>
+        <input value="{{addForm::input}}" on-keypress="_add" placeholder="Please enter" type="text" class="validate">
+        <label for="first_name">Todo list</label>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'todo-form',
+      properties:{
+        todos:{
+          notify: true
+        },
+        addForm:{
+          value:''
+        }
+      },
+      _add:function(e) {
+        if (13 === e.charCode && this.addForm!=='') {
+            //alert(this.addForm);
+            this.push('todos',{
+              name: this.addForm
+            });
+            this.addForm='';
+            //console.log(this.todos);
+        }
+      }
+    });
+  </script>
+</dom-module>

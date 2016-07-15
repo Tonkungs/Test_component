@@ -1,0 +1,57 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link href="../../bower_components/paper-fab/paper-fab.html" rel="import">
+<link href="../../bower_components/iron-icons/iron-icons.html" rel="import">
+
+<dom-module id="todo-app">
+  <style is="custom-style">
+
+
+      .container {
+        @apply(--layout-horizontal);
+      }
+      .flex1child {
+        @apply(--layout-flex-3);
+      }
+      .flex2child {
+        @apply(--layout-flex-3);
+      }
+
+      paper-material{
+        padding: 15px;
+      }
+  </style>
+
+  <template>
+
+    <div class="container">
+      <div class="flex1child">
+        <paper-material elevation="1">
+          <paper-input label="Todo List" always-float-label></paper-input>
+        </paper-material>
+      </div>
+      <div class="flex2child"></div>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+      is: "todo-app",
+
+      properties: {
+
+        greeting: {
+          type: String,
+          value: "Hello!"
+        }
+
+      }
+    });
+  </script>
+
+</dom-module>

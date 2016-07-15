@@ -1,0 +1,35 @@
+
+<dom-module id="my-drawer">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <paper-listbox>
+        <template is="dom-repeat" items="{{menu}}">
+          <paper-item>{{item.nameTag}}</paper-item>
+        </template>
+    </paper-listbox>
+  </template>
+  <script>
+    Polymer({
+      is: "my-drawer",
+      // properties: {
+      //   menu: {
+      //     type: Array,
+      //     value: function() {return []; }
+      //   }
+      // },
+      ready: function() {
+        this.menu = [
+            { nameTag: "Index"},
+            { nameTag: "Bin"},
+            { nameTag: "Review"},
+            { nameTag: "Register"}
+        ];
+      },
+
+    });
+  </script>
+</dom-module>

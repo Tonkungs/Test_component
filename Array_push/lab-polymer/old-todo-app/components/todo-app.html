@@ -1,0 +1,34 @@
+<link rel="import" href="../../../../../bower_components/polymer/polymer.html">
+<link rel="import" href="todo-form.html">
+<link rel="import" href="todo-list.html">
+
+<dom-module id="todo-app">
+  <template>
+
+    <div class="row">
+      <div class="col m4">
+        <div class="card"><br>
+          <todo-form todos="{{sourceTodos}}"></todo-form>
+          <todo-list todos="{{sourceTodos}}"></todo-list>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'todo-app',
+      properties:{
+        sourceTodos:{
+          value: function(){
+            return [
+              { name: "งาน 1" },
+              { name: "งาน 2" }
+            ]
+          }
+        }
+      }
+    });
+  </script>
+</dom-module>

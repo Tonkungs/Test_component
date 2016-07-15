@@ -1,0 +1,34 @@
+<dom-module id="my-component">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    My-component {{name}} | [[name]]
+    <br>
+    <input type="text" value="{{value_Icon_Pic::input}}">
+    <br>
+    {{value_Icon_Pic}}
+
+  </template>
+  <script>
+    Polymer({
+      is: "my-component",
+      properties: {
+        name: {
+          type: Array,
+          value: function() { return []; }// ประกาศค่า deflat
+        }
+      },
+      // created: function() {
+      //   console.log(this.name);
+      // },
+      ready: function() {
+          this.name=5
+      },
+
+    });
+
+  </script>
+</dom-module>

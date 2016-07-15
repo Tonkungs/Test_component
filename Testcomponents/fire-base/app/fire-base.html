@@ -1,0 +1,28 @@
+<dom-module id="fire-base">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <template is="dom-bind">
+      <firebase-collection
+        order-by-child="height"
+        limit-to-first="3"
+        location="https://dinosaur-facts.firebaseio.com/dinosaurs"
+        data="{{dinosaurs}}"></firebase-collection>
+      <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
+        <h4>[[dinosaur.__firebaseKey__]]</h4>
+        Height: <span>[[dinosaur.height]]</span>m
+      </template>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      is: "fire-base",
+      ready: function() {
+        console.log(this.dinosaurs);
+      },
+    });
+  </script>
+</dom-module>

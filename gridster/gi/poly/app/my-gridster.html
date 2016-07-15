@@ -1,0 +1,64 @@
+
+
+  <base href="http://polygit.org/components/">
+
+  <script src="webcomponentsjs/webcomponents-lite.min.js"></script>
+  <link href="paper-elements/paper-elements.html" rel="import">
+
+
+
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <!-- <script src="../../../../../bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script> -->
+  <!-- <script src="https://rawgit.com/ducksboard/gridster.js/master/dist/jquery.gridster.min.js"></script> -->
+  <!-- <script src="../js/jquery.gridster.min.js" ></script> -->
+  <link rel="stylesheet" href="https://rawgit.com/ducksboard/gridster.js/master/dist/jquery.gridster.min.css">
+
+<dom-module id="my-gridster">
+<style>
+   ul {
+    list-style-type: none;
+   }
+   li {
+    background-color: #FF0000
+   }
+  .gridster .gs-w {
+    z-index: 0;
+  }
+</style>
+  <template>
+    <div class="gridster">
+    <ul>
+        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1"></li>
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
+        <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
+        <li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
+      <li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
+      <li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
+    </ul>
+   </div>
+  </template>
+  <script>
+  Polymer({
+    is: 'my-gridster',
+    ready: function() {
+    this.async(function() {
+
+      $(".gridster ul").gridster({
+        widget_margins: [10, 10],
+        widget_base_dimensions: [150, 150]
+      });
+
+    });
+   }
+  });
+  </script>
+</dom-module>
+
+
+
+      <my-gridster></my-gridster>
+
+
+</body>
+
+</body>

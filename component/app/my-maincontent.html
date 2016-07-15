@@ -1,0 +1,45 @@
+<dom-module id="my-maincontent">
+  <style>
+    :host {
+      display: block;
+    }
+    paper-card{
+      margin: 5px;
+    }
+    .card-header{
+      margin: 5px;
+    }
+  </style>
+  <template>
+    <template is="dom-repeat" items="{{myCard}}">
+      <paper-card >
+        <div class="card-header">
+        {{item.myCard}}
+        </div>
+        <div class="card-content">
+          {{item.content}}
+        </div>
+      </paper-card>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      is: "my-maincontent",
+      // properties: {
+      //   myCard: {
+      //     type: Array,
+      //     value: function(){return[];}
+      //   }
+      // },
+      ready: function() {
+        this.myCard= [
+            { myCard: " Card 1 ",content:"Card one "},
+            { myCard: " Card 2 ",content:"Card two "},
+            { myCard: " Card 3 ",content:"Card three "},
+            { myCard: " Card 4 ",content:"Card four "}
+        ];
+      },
+
+    });
+  </script>
+</dom-module>

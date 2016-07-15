@@ -1,0 +1,32 @@
+<link rel="import" href="my-card.html">
+<dom-module id="my-contents">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <template is="dom-repeat" items="{{contents}}">
+      <my-card data="{{item}}"></my-card>
+    </template>
+
+  </template>
+  <script>
+    Polymer({
+      is: "my-contents",
+      properties: {
+        contents: {
+          type: Array,
+          value: function(){
+            return [
+              {namecard:"การ์ดใบแรก",content:"การ์ดใบแรกการ์ดใบแรกการ์ดใบแรกการ์ดใบแรก" },
+              {namecard:"การ์ดใบสอง",content:"การ์ดใบสองการ์ดใบสองการ์ดใบสองการ์ดใบสอง" },
+              {namecard:"การ์ดใบสาม",content:"การ์ดใบสามการ์ดใบสามการ์ดใบสามการ์ดใบสาม" }
+            ]
+          }
+        }
+      }
+
+    });
+  </script>
+</dom-module>
