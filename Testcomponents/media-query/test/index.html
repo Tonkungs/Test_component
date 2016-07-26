@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+        <title>Title of the document</title>
+        <link rel="import" href="../../../../bower_components/polymer/polymer.html">
+        <link rel="import" href="../../../../bower_components/iron-flex-layout/iron-flex-layout.html">
+
+        <style>
+            body{
+                padding : 0px;
+                margin:0px;
+            }
+        </style>
+
+        <dom-module id="responsive-flexbox">
+
+            <template>
+
+                <style>
+                    .main {
+                        background-color:#3399ff;
+                    }
+
+                    .container {
+                        margin: auto;
+                        background-color: lightgreen;
+                        padding:10px 10px 0px 10px;
+                        @apply(--layout-horizontal);
+                        @apply(--layout-wrap);
+                    }
+                    .item {
+                        background-color:#FFF;
+                        width:170px;
+                        height:230px;
+                        margin-bottom:10px;
+                    }
+                    @media screen and (min-width: 731px){
+                        .container {
+                        width:710px;
+                        }
+                        .item {
+                        margin-right:10px;
+                        }
+                        .item:nth-child(4n) {
+                        margin-right:0px;
+                        }
+                    }
+                    @media screen and (min-width: 551px) and (max-width: 730px) {
+                        .container {
+                        width:530px;
+                        }
+                        .item:nth-child(3n+2) {
+                        margin-left:10px;
+                        margin-right:10px;
+                        }
+                    }
+                    @media screen and (min-width: 371px) and (max-width: 550px) {
+                        .container {
+                        width:350px;
+                        }
+                        .item:nth-child(odd) {
+                        margin-right:10px;
+                        }
+                    }
+                    @media screen and (min-width: 0px) and (max-width: 370px) {
+                        .container {
+                        width:170px;
+                        }
+                        .item:nth-child(odd) {
+                        margin-right:0px;
+                        }
+                    }
+                </style>
+
+                <div class="main">
+                    <div class="container">
+                        <div class="item">1</div>
+                        <div class="item">2</div>
+                        <div class="item">3</div>
+                        <div class="item">4</div>
+                        <div class="item">5</div>
+                        <div class="item">6</div>
+                        <div class="item">7</div>
+                        <div class="item">8</div>
+                        <div class="item">9</div>
+                        <div class="item">10</div>
+                        <div class="item">11</div>
+                        <div class="item">12</div>
+                        <div class="item">13</div>
+                        <div class="item">14</div>
+                        <div class="item">15</div>
+                        <div class="item">16</div>
+                        <div class="item">17</div>
+                        <div class="item">18</div>
+                        <div class="item">19</div>
+                        <div class="item">20</div>
+                        <div class="item">21</div>
+                        <div class="item">22</div>
+                        <div class="item">23</div>
+                        <div class="item">24</div>
+                        <div class="item">25</div>
+                    </div>
+                </div>
+
+            </template>
+            <script>
+                Polymer({
+                    is: 'responsive-flexbox'
+                });
+            </script>
+
+        </dom-module>
+    </head>
+
+    <body>
+        <responsive-flexbox></responsive-flexbox>
+    </body>
+
+</html>

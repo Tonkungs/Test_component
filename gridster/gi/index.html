@@ -68,6 +68,8 @@
         }
         function export_g(){
           console.log(JSON.stringify(gridster.serialize()));
+          var textarea = document.getElementById('txtArea');
+          textarea.value= JSON.stringify(gridster.serialize());
         }
     </script>
   ตัวที่ <input type="text" id ="co" name="name" value="">
@@ -76,6 +78,7 @@
     <button type="button" name="button" onclick="change()">เปลี่ยนขนาด</button>
     <button type="button" name="button" onclick="add()">เพิ่มกรอบ</button>
     <button type="button" name="button" onclick="export_g()">export</button>
+    ​<textarea id="txtArea" rows="10" cols="70"></textarea>
     <div class="gridster">
         <div>
           <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">0</li>

@@ -1,0 +1,58 @@
+<link rel="import" href="my-contents.html">
+
+<dom-module id="my-main">
+<style is="custom-style" include="iron-flex"></style>
+<style>
+.card{
+  border: 1px solid #000;
+  width: 300px;
+  height: 300px;
+  margin: 5px;
+}
+</style>
+<style is="custom-style">
+.flex-equal-around-justified {
+  @apply(--layout-horizontal);
+  @apply(--layout-wrap);
+  width: 960px;
+  border: 1px solid #000;
+}
+.flex-around-justified {
+  @apply(--layout-horizontal);
+  @apply(--layout-around-justified);
+}
+.bor{
+  margin: 5px;
+  border: 1px solid red;
+  width: 305px;
+  height: 300px;
+}
+.block-2 {
+  width: 120px;
+  height: 120px;
+  margin: 20px;
+  background: #04BF9D;
+  float: right;
+}
+</style>
+<template>
+  <div class="flex-around-justified">
+    <div class="flex-equal-around-justified">
+      <div class="bor">around-justified</div>
+      <div class="bor"> around-justified</div>
+      <div class="bor"> around-justified</div>
+      <div class="bor "> around-justifie
+        <div class="block-2"> fdsfsd</div>
+      </div>
+
+    </div>
+  </div>
+
+</template>
+<script>
+Polymer({
+  is: "my-main",
+
+});
+</script>
+</dom-module>
