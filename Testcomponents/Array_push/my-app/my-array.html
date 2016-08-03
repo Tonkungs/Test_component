@@ -1,0 +1,46 @@
+<link rel="import" href="my-array-item.html">
+<dom-module id="my-array">
+  <template>
+    <paper-input label="id" id="id"></paper-input>
+    <paper-input label="nameMenu" id="nameMenu"></paper-input>
+    <paper-input label="detail" id="detail"></paper-input>
+    <button type="button" name="button" on-tap="addData">เพิ่มข้อมูล</button><br>
+      <hr>
+      <template is="dom-repeat" items="[[dataArray]]">
+        <my-array-item data={{item}} ></my-array-item>
+        <button id="{{index}}"type="button" name="button" on-tap="delete" >ลบข้อมูล</button>
+        <hr>
+      </template>
+      <!-- <button type="button" name="button" on-tap="delete" >ลบข้อมูล</button> -->
+  </template>
+  <script>
+    Polymer({
+      is: "my-array",
+      properties: {
+        dataArray: {
+          type: Object,
+          value: [
+              { id:0 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+              { id:1 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" },
+              { id:2 , nameMenu:"ข้อมูล 3" , detail:"รายละเอียด 3" }
+            ]
+        }
+      },
+      addData:function(){
+        var id = this.$$('#id').value;
+        var nameMenu = this.$$('#nameMenu').value;
+        var detail = this.$$('#detail').value;
+        this.push('dataArray', { id:id ,
+                                 nameMenu:nameMenu ,
+                                 detail:detail
+                               }
+                  );
+      },
+      delete:function(e){
+        console.log(e.target.id);
+        this.splice('dataArray', e.target.id, 1);
+      }
+
+    });
+  </script>
+</dom-module>
